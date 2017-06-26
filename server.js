@@ -8,6 +8,7 @@ var chrono = require('chrono-node');
 var object;
 
 function dateChecker (date) {
+    console.log(chrono.parseDate(date));
     if (isNaN(date)===false) {
         object = {
            unix: date,
@@ -15,9 +16,11 @@ function dateChecker (date) {
        }; 
     }
     else if (Boolean(chrono.parseDate(date))!== false ) {
+        var newdate = date.replace(/%20/g, '');
+        console.log(newdate);
           object = {
-        unix: Date.parse(chrono.parseDate(date)),
-        natural: moment(chrono.parseDate(date)).format("MMM Do, YYYY")
+        unix: Date.parse(chrono.parseDate(newdate)),
+        natural: moment(chrono.parseDate(newdate)).format("MMM Do, YYYY")
     }
 }
 else {
@@ -27,6 +30,10 @@ else {
     };
 }
 }
+
+app.get('/', function(req,res) {
+    res.sendFile(path.join(__dirname, './time.html'));
+});
 
 app.get('*', function(req, res) {
     var date = req.path.substr(1); 
