@@ -1,9 +1,9 @@
-URL Shortener
+Timestamp Microservice
 
 
 Introduction
 ------------------
-This app is my version of the URL shortener program from FreeCodeCamp. 
+This app is my version of the Timestamp Microservice program from FreeCodeCamp. 
  
 How to get up and running
 -----------------
